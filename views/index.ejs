@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Acortador :3</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <%- include('./components/header.ejs') %>
+    
+    <main class="main">
+        <form action="/short" method="post" class="form-short-url">
+            <input type="url" placeholder="Escribe la URL" name="input_url" id="input-url" required>
+            <button type="submit" class="button-form-short-url">Acortar</button>
+        </form>
+        <p class="description-text">
+            El acortador de URL permite crear un enlace acortado que facilita compartirlo.
+        </p>
+    </main>
+
+    <!-- Footer -->
+    <%- include('./components/footer.ejs') %>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Link Acortado</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <%- include('./components/header.ejs') %>
+
+    <main class="main preview">
+        <p class="description-text top">
+            La URL está lista. Copia el enlace para compartir con quien quieras.
+        </p>
+        <article class="form-short-url">
+            <input type="text" name="link-short-preview" id="link-short-preview"
+                value="http://localhost:5000/<%= shortUrl.short %>">
+            <button type="button" class="button-form-short-url" id="btn-copy">Copiar</button>
+        </article>
+        <p class="description-text">
+            URL completa: <a href="<%= shortUrl.full %>">
+                <%= shortUrl.full %>
+            </a>
+        </p>
+    </main>
+    <p class="media-title">O comparte en tus redes:</p>
+    <%- include('./media.ejs', {short: shortUrl.short}) %>
+
+    <!-- Footer -->
+    <%- include('./components/footer.ejs') %>
+</body>
+
+<script>
+    const $btnCopy = document.getElementById('btn-copy')
+    const $textCopy = document.getElementById('link-short-preview').value
+
+    $btnCopy.addEventListener("click", async () => {
+        try {
+            await navigator.clipboard.writeText($textCopy)
+            console.log('Contenido copiado al portapapeles');
+            $textCopy
+        } catch (err) {
+            console.error('Error al copiar: ', err);
+        }
+    })
+</script>
+
+</html>
