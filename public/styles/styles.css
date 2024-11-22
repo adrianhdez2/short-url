@@ -24,6 +24,10 @@
 
 body {
   width: 100%;
+  height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
 }
 
 .header {
@@ -186,13 +190,13 @@ h1 {
   color: #fff;
 }
 
-.go-home{
+.go-home {
   color: var(--blue-ribbon-600);
   font-size: 13px;
   margin-top: 20px;
 }
 
-.go-home:hover{
+.go-home:hover {
   color: var(--blue-ribbon-700);
 }
 
