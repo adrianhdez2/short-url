@@ -15,7 +15,7 @@ app.use(urlencoded({ extended: true }))
 app.use(corsMiddleware())
 app.use(static_(path.join(__dirname, 'public')));
 
-connectToMongoDB('mongodb://https://shorteneradrian-5a5c09dc7615.herokuapp.com/short-url')
+connectToMongoDB('mongodb://localhost:27017/short-url')
     .then(() => console.log("MongoDB connected!"))
 
 app.use('/', urlRoutes)
@@ -23,5 +23,5 @@ app.use('*', urlRoutes)
 
 
 app.listen(PORT, () => {
-    console.log(`Server running in https://shorteneradrian-5a5c09dc7615.herokuapp.com/:${PORT}`);
+    console.log(`Server running in http://localhost:${PORT}`);
 })
